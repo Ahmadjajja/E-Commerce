@@ -7,24 +7,7 @@ import SignUp from "../screens/authentication/signUp/SignUp"
 import ForgotPassword from "../screens/authentication/forgotPassword/ForgotPassword"
 import Home from '../screens/frontend/home/Home';
 
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
 
-function NotificationsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button  title="Go back home" />
-    </View>
-  );
-}
 
 const Drawer = createDrawerNavigator();
 
