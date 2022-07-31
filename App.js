@@ -1,13 +1,16 @@
 import { View, Text } from 'react-native'
-import React from 'react'
 import AppNavigator from "./src/navigation/AppNavigation"
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 const App = () => {
   return (
-    <>
-      <AppNavigator/>
-      {/* <Text>kskdfj;asdjf</Text> */}
-    </>
+    // <>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
+    // {/* </> */}
   )
 }
 
 export default App
+
