@@ -4,7 +4,7 @@ import clearSkyBg from "../../../assets/ClearSky.jpg"
 import Icon from 'react-native-vector-icons/FontAwesome'
 // import  TextInput  from 'react-native-paper';
 
-export default function SignUp() {
+export default function SignUp({navigation}) {
     const [text, setText] = useState("");
     const onChangeNumber = () => {
 
@@ -43,7 +43,7 @@ export default function SignUp() {
                 </View>
                 <View style={styles.btn}>
                     <Button
-                        // onPress={onPressLearnMore}
+                        onPress={()=> navigation.navigate("Home")}
                         title="SignUp"
                         color="#013a63"
                         accessibilityLabel="Learn more about this purple button"
@@ -60,7 +60,7 @@ export default function SignUp() {
                 </View>
                 <View style={styles.login}>
                     <Text style={{ color: "white", marginBottom: 0 }}>Already a user?</Text>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={()=> navigation.navigate("Login")}>
                         <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>LOGIN</Text>
                     </TouchableOpacity>
                 </View>

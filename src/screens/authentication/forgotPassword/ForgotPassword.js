@@ -4,7 +4,7 @@ import clearSkyBg from "../../../assets/ClearSky.jpg"
 import Icon from 'react-native-vector-icons/FontAwesome'
 // import  TextInput  from 'react-native-paper';
 
-export default function ForgotPassword() {
+export default function ForgotPassword({navigation}) {
     const [text, setText] = useState("");
     const onChangeNumber = () => {
 
@@ -47,7 +47,7 @@ export default function ForgotPassword() {
 
                 <View style={styles.signUp}>
                     <Text style={{ color: "white", marginBottom: 0 }}>Already a user?</Text>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={()=> navigation.navigate("Login")}>
                         <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>LOGIN</Text>
                     </TouchableOpacity>
                 </View>
