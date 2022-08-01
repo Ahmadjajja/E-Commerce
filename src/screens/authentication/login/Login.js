@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#115197",
         padding: 10,
         width: 260,
+        color:"white",
     }, inputPassword: {
         height: 40,
         margin: 8,

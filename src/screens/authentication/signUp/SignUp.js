@@ -5,13 +5,18 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import FeatherIcon from 'react-native-vector-icons/Feather'
 
 // import  TextInput  from 'react-native-paper';
+const initialState = {email:"", password:"", confirmPassword:""}
 
 export default function SignUp({navigation}) {
     const [isPasswordShow, setIsPasswordShow] = useState(true);
     const [isConfirmPasswordShow, setIsConfirmPasswordShow] = useState(true);
-
-    const onChangeNumber = () => {
-
+    const [signUpData, setSignData] = useState(initialState); 
+    const handleChange = (name, value) => {
+        setSignData({ ...signUpData, [name]: value })
+    }
+    const submitHandler = () => {
+        // navigation.navigate("Home")
+        console.log(signUpData)
     }
     return (
         <>
@@ -25,8 +30,8 @@ export default function SignUp({navigation}) {
                         color="white" />
                     <TextInput
                         style={styles.inputEmail}
-                        // onChangeText={onChangeNumber}
-                        // value={text}
+                        onChangeText={(text) => handleChange('email', text)}
+                        value={signUpData.email}
                         placeholder="Enter Your email"
                         keyboardType="email-address"
                         placeholderTextColor="#ccc"
@@ -36,10 +41,10 @@ export default function SignUp({navigation}) {
                     <Icon style={styles.inputIcon} name="lock" size={25} color="white" />
                     <TextInput
                         style={styles.inputPassword}
-                        // onChangeText={onChangeNumber}
-                        // value={text}
+                        onChangeText={(text) => handleChange('password', text)}
+                        value={signUpData.password}
                         placeholder="Enter Your password"
-                        keyboardType="default"
+                        keyboardType="visible-password"
                         placeholderTextColor="#ccc"
                     />
                     <TouchableOpacity>
@@ -54,10 +59,10 @@ export default function SignUp({navigation}) {
                     <Icon style={styles.inputIcon} name="lock" size={25} color="white" />
                     <TextInput
                         style={styles.inputPassword}
-                        // onChangeText={onChangeNumber}
-                        // value={text}
+                        onChangeText={(text) => handleChange('confirmPassword', text)}
+                        value={signUpData.confirmPassword}
                         placeholder="Enter Your confirm password"
-                        keyboardType="default"
+                        keyboardType="visible-password"
                         placeholderTextColor="#ccc"
                     />
                     <TouchableOpacity>
@@ -70,7 +75,7 @@ export default function SignUp({navigation}) {
                 </View>
                 <View style={styles.btn}>
                     <Button
-                        onPress={()=> navigation.navigate("Home")}
+                        onPress={submitHandler}
                         title="SignUp"
                         color="#013a63"
                         accessibilityLabel="Learn more about this purple button"
@@ -111,6 +116,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#115197",
         padding: 10,
         width: 260,
+        color:"white"
     }, inputPassword: {
         height: 40,
         margin: 8,

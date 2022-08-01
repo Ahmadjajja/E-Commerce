@@ -6,9 +6,14 @@ import FeatherIcon from 'react-native-vector-icons/Feather'
 // import  TextInput  from 'react-native-paper';
 
 export default function ForgotPassword({navigation}) {
-    // const onChangeNumber = () => {
-
-    // }
+    const [email, setEmail] = useState(""); 
+    const handleChange = (value) => {
+        setEmail( value );
+    }
+    const submitHandler = () => {
+        // navigation.navigate("Home")
+        console.log(email)
+    }
     return (
         <>
             <ImageBackground source={require("../../../assets/ClearSky.jpg")} style={styles.container}  >
@@ -21,8 +26,8 @@ export default function ForgotPassword({navigation}) {
                         color="white" />
                     <TextInput
                         style={styles.inputEmail}
-                        // onChangeText={onChangeNumber}
-                        // value={text}
+                        onChangeText={(text) => handleChange(text)}
+                        value={email}
                         placeholder="Enter Your email"
                         keyboardType="email-address"
                         placeholderTextColor="#ccc"
@@ -30,7 +35,7 @@ export default function ForgotPassword({navigation}) {
                 </View>
                 <View style={styles.btn}>
                     <Button
-                        // onPress={onPressLearnMore}
+                        onPress={submitHandler}
                         title="Send Email"
                         color="#013a63"
                         accessibilityLabel="Learn more about this purple button"
