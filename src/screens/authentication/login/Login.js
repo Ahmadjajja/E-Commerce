@@ -6,14 +6,16 @@ import FeatherIcon from 'react-native-vector-icons/Feather'
 // import  TextInput  from 'react-native-paper';
 
 const initialState = {email:"", password:""}
+
 export default function Login({ navigation }) {
     const [isPasswordShow, setIsPasswordShow] = useState(true);
     const [loginData, setLoginData] = useState(initialState); 
-    const changeHandler = () => {
-        setLoginData()
+    const handleChange = (name, value) => {
+        setLoginData({ ...loginData, [name]: value })
     }
     const submitHandler = () => {
-        navigation.navigate("Home")
+        // navigation.navigate("Home")
+        console.log(loginData)
     }
     return (
         <>
@@ -22,13 +24,13 @@ export default function Login({ navigation }) {
                 <View style={styles.iconAndInput}>
                     <Icon
                         style={styles.inputIcon}
-                        name="user"
+                        name="user-o"
                         size={25}
                         color="white" />
                     <TextInput
                         style={styles.inputEmail}
-                        onChangeText={changeHandler}
-                        // value={text}
+                        onChangeText={(text) => handleChange('email', text)}
+                        value={loginData.email}
                         placeholder="Enter Your email"
                         keyboardType="email-address"
                         placeholderTextColor="#ccc"
@@ -38,8 +40,8 @@ export default function Login({ navigation }) {
                     <Icon style={styles.inputIcon} name="lock" size={25} color="white" />
                     <TextInput
                         style={styles.inputPassword}
-                        // onChangeText={onChangeNumber}
-                        // value={text}
+                        onChangeText={(text) => handleChange('password', text)}
+                        value={loginData.password}
                         placeholder="Enter Your password"
                         keyboardType="default"
                         placeholderTextColor="#ccc"
