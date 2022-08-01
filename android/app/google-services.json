@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "69610882072",
+    "project_id": "jajja-ecommerceapp",
+    "storage_bucket": "jajja-ecommerceapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69610882072:android:3fb49e592e26d4b8beaf6d",
+        "android_client_info": {
+          "package_name": "com.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69610882072-2tkjf58uhivh9h5v32em95l4991jo7h8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0FKweksXZrzRkZlX5T2kLS5j1JzRkLiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69610882072-2tkjf58uhivh9h5v32em95l4991jo7h8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,29 +2,30 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, ImageBackground, TextInput, Button, TouchableOpacity } from 'react-native'
 import clearSkyBg from "../../../assets/ClearSky.jpg"
 import Icon from 'react-native-vector-icons/FontAwesome'
+import FeatherIcon from 'react-native-vector-icons/Feather'
 // import  TextInput  from 'react-native-paper';
 
 export default function ForgotPassword({navigation}) {
-    const [text, setText] = useState("");
-    const onChangeNumber = () => {
+    // const onChangeNumber = () => {
 
-    }
+    // }
     return (
         <>
             <ImageBackground source={require("../../../assets/ClearSky.jpg")} style={styles.container}  >
                 <Text style={styles.loginText}>Forgot Password</Text>
-                <View>
-                    {/* <TextInput
-                        label="Email"
-                        value={text}
-                        onChangeText={text => setText(text)}
-                    /> */}
+                <View style={styles.iconAndInput}>
+                    <Icon
+                        style={styles.inputIcon}
+                        name="user"
+                        size={25}
+                        color="white" />
                     <TextInput
-                        style={styles.input}
-                        onChangeText={onChangeNumber}
+                        style={styles.inputEmail}
+                        // onChangeText={onChangeNumber}
                         // value={text}
                         placeholder="Enter Your email"
                         keyboardType="email-address"
+                        placeholderTextColor="#ccc"
                     />
                 </View>
                 <View style={styles.btn}>
@@ -62,18 +63,25 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flex: 1,
         backgroundColor: "red"
-    }, input: {
+    }, inputEmail: {
         height: 40,
         margin: 8,
-        borderWidth: 1,
-        borderColor: "#ccc",
+        backgroundColor: "#115197",
         padding: 10,
-        backgroundColor: "white",
+        width: 260,
+    },
+    iconAndInput: {
+        flexDirection: 'row',
         width: 300,
+        borderBottomColor: "#ccc",
+        borderBottomWidth: 1,
+    }, inputIcon: {
+        paddingTop: 15,
     },
     loginText: {
         color: "white",
-        fontSize: 32
+        fontSize: 32,
+        paddingRight:60,
     },
     btn: {
         width: 300,

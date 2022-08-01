@@ -2,41 +2,57 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet, ImageBackground, TextInput, Button, TouchableOpacity } from 'react-native'
 import clearSkyBg from "../../../assets/ClearSky.jpg"
 import Icon from 'react-native-vector-icons/FontAwesome'
+import FeatherIcon from 'react-native-vector-icons/Feather'
 // import  TextInput  from 'react-native-paper';
 
-export default function Login({navigation}) {
-    // const [text, setText] = useState("");
-    // const onChangeNumber = () => {
-
-    // }
+const initialState = {email:"", password:""}
+export default function Login({ navigation }) {
+    const [isPasswordShow, setIsPasswordShow] = useState(true);
+    const [loginData, setLoginData] = useState(initialState); 
+    const changeHandler = () => {
+        setLoginData()
+    }
     const submitHandler = () => {
         navigation.navigate("Home")
     }
-    return ( 
+    return (
         <>
             <ImageBackground source={require("../../../assets/ClearSky.jpg")} style={styles.container}  >
                 <Text style={styles.loginText}>Login</Text>
-                <View>
-                    {/* <TextInput
-                        label="Email"
-                        value={text}
-                        onChangeText={text => setText(text)}
-                    /> */}
+                <View style={styles.iconAndInput}>
+                    <Icon
+                        style={styles.inputIcon}
+                        name="user"
+                        size={25}
+                        color="white" />
                     <TextInput
-                        style={styles.input}
-                        // onChangeText={onChangeNumber}
+                        style={styles.inputEmail}
+                        onChangeText={changeHandler}
                         // value={text}
                         placeholder="Enter Your email"
                         keyboardType="email-address"
+                        placeholderTextColor="#ccc"
                     />
+                </View>
+                <View style={styles.iconAndInput}>
+                    <Icon style={styles.inputIcon} name="lock" size={25} color="white" />
                     <TextInput
-                        style={styles.input}
+                        style={styles.inputPassword}
                         // onChangeText={onChangeNumber}
                         // value={text}
                         placeholder="Enter Your password"
                         keyboardType="default"
+                        placeholderTextColor="#ccc"
                     />
+                    <TouchableOpacity>
+                        <FeatherIcon style={styles.inputIcon}
+                            secureTextEntry={true}
+                            onPress={() => setIsPasswordShow(!isPasswordShow)}
+                            name={isPasswordShow ? "eye-off" : "eye"}
+                            size={25} color="white" />
+                    </TouchableOpacity>
                 </View>
+
                 <View style={styles.btn}>
                     <Button
                         onPress={submitHandler}
@@ -46,7 +62,7 @@ export default function Login({navigation}) {
                     />
                 </View>
                 <View style={styles.FP}>
-                    <TouchableOpacity onPress={()=> navigation.navigate("ForgotPassword")} >
+                    <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")} >
                         <Text style={{ color: "white" }}>Forgot Password?</Text>
                     </TouchableOpacity>
                 </View>
@@ -73,7 +89,7 @@ export default function Login({navigation}) {
                 </View>
                 <View style={styles.signUp}>
                     <Text style={{ color: "white", marginBottom: 0 }}>Need an Account?</Text>
-                    <TouchableOpacity onPress={()=> navigation.navigate("SignUp")}>
+                    <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
                         <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>SIGNUP</Text>
                     </TouchableOpacity>
                 </View>
@@ -87,19 +103,38 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flex: 1,
-        backgroundColor: "red"
-    }, input: {
+    }, inputEmail: {
         height: 40,
         margin: 8,
-        borderWidth: 1,
-        borderColor: "#ccc",
+        // borderWidth: 1,
+        // borderColor: "#ccc",
+        // borderStyle:"",
+        backgroundColor: "#115197",
         padding: 10,
-        backgroundColor: "white",
+        width: 260,
+    }, inputPassword: {
+        height: 40,
+        margin: 8,
+        // borderWidth: 1,
+        // borderColor: "#ccc",
+        // borderStyle:"",
+        backgroundColor: "#115197",
+        padding: 10,
+        width: 240,
+        color: "white"
+    },
+    iconAndInput: {
+        flexDirection: 'row',
         width: 300,
+        borderBottomColor: "#ccc",
+        borderBottomWidth: 1,
+    }, inputIcon: {
+        paddingTop: 15,
     },
     loginText: {
         color: "white",
-        fontSize: 32
+        fontSize: 32,
+        paddingRight:220,
     },
     btn: {
         width: 300,

@@ -10,7 +10,7 @@ export default function MyContext({children}) {
     <AppContext.Provider value={{ authenticated, setAuthenticated}}>    
         
         {children}
-    
+     
     </AppContext.Provider>
   )
 }
