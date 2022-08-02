@@ -7,22 +7,22 @@ import Login from "../screens/authentication/login/Login"
 import SignUp from "../screens/authentication/signUp/SignUp"
 import ForgotPassword from "../screens/authentication/forgotPassword/ForgotPassword"
 import Home from '../screens/frontend/home/Home';
-import  { useAuthContext }  from '../context/ContextApi';
+import { useAuthContext } from '../context/ContextApi';
 
 
 // const Drawer = createDrawerNavigator();
 
 export default function AppNavigator() {
 
-  // const { authenticated } = useAuthContext();
+  const { isAuthenticated } = useAuthContext();
   const Stack = createNativeStackNavigator();
   const Drawer = createDrawerNavigator();
 
-
+  // const isAuthenticated  = false
 
   return (
     <>
-      {!false ?
+      {!isAuthenticated ?
         <>
           <Stack.Navigator initialRoute="Login" screenOptions={{
             headerShown: false

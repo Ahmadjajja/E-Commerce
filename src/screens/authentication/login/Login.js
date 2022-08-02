@@ -4,6 +4,7 @@ import clearSkyBg from "../../../assets/ClearSky.jpg"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import FeatherIcon from 'react-native-vector-icons/Feather'
 // import  TextInput  from 'react-native-paper';
+import auth from '@react-native-firebase/auth';
 
 const initialState = {email:"", password:""}
 
@@ -14,13 +15,28 @@ export default function Login({ navigation }) {
         setLoginData({ ...loginData, [name]: value })
     }
     const submitHandler = () => {
-        // navigation.navigate("Home")
-        console.log(loginData)
+        auth()
+        .signInWithEmailAndPassword(loginData.email, loginData.password)
+        .then(() => {
+            console.log('User signed in!');
+            // navigation.navigate("Home")
+        })
+        .catch(error => {
+            if (error.code === 'auth/email-already-in-use') {
+                console.log('That email address is already in use!');
+            }
+
+            if (error.code === 'auth/invalid-email') {
+                console.log('That email address is invalid!');
+            }
+
+            console.error(error);
+        });
     }
     return (
         <>
             <ImageBackground source={require("../../../assets/ClearSky.jpg")} style={styles.container}  >
-                <Text style={styles.loginText}>Login</Text>
+                <Text style={styles.loginText}>SIGN IN</Text>
                 <View style={styles.iconAndInput}>
                     <Icon
                         style={styles.inputIcon}
@@ -45,10 +61,10 @@ export default function Login({ navigation }) {
                         placeholder="Enter Your password"
                         keyboardType="default"
                         placeholderTextColor="#ccc"
+                        secureTextEntry={true}
                     />
                     <TouchableOpacity>
                         <FeatherIcon style={styles.inputIcon}
-                            secureTextEntry={true}
                             onPress={() => setIsPasswordShow(!isPasswordShow)}
                             name={isPasswordShow ? "eye-off" : "eye"}
                             size={25} color="white" />
@@ -58,7 +74,7 @@ export default function Login({ navigation }) {
                 <View style={styles.btn}>
                     <Button
                         onPress={submitHandler}
-                        title="Login"
+                        title="SIGN IN"
                         color="#013a63"
                         accessibilityLabel="Learn more about this purple button"
                     />
@@ -92,7 +108,7 @@ export default function Login({ navigation }) {
                 <View style={styles.signUp}>
                     <Text style={{ color: "white", marginBottom: 0 }}>Don't have an account?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                        <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>Create here</Text>
+                        <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>Create Here</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground>
@@ -137,7 +153,7 @@ const styles = StyleSheet.create({
     loginText: {
         color: "white",
         fontSize: 32,
-        paddingRight:220,
+        paddingRight:195,
     },
     btn: {
         width: 300,
