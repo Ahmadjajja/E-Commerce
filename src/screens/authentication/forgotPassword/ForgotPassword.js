@@ -21,7 +21,7 @@ export default function ForgotPassword({navigation}) {
                 <View style={styles.iconAndInput}>
                     <Icon
                         style={styles.inputIcon}
-                        name="user"
+                        name="user-o"
                         size={25}
                         color="white" />
                     <TextInput

@@ -25,7 +25,7 @@ export default function SignUp({navigation}) {
                 <View style={styles.iconAndInput}>
                     <Icon
                         style={styles.inputIcon}
-                        name="user"
+                        name="user-o"
                         size={25}
                         color="white" />
                     <TextInput

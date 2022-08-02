@@ -90,9 +90,9 @@ export default function Login({ navigation }) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.signUp}>
-                    <Text style={{ color: "white", marginBottom: 0 }}>Need an Account?</Text>
+                    <Text style={{ color: "white", marginBottom: 0 }}>Don't have an account?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-                        <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>SIGNUP</Text>
+                        <Text style={{ color: "white", paddingLeft: 5, fontSize: 16 }}>Create here</Text>
                     </TouchableOpacity>
                 </View>
             </ImageBackground>
