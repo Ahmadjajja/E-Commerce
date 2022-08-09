@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <>
-      <AuthContextProvider>
+      <AuthContextProvider> 
         <NavigationContainer>
           <AppNavigator />
         </NavigationContainer>
